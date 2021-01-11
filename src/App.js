@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.scss'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
+
+import Login from './pages/auth/Login'
+import Reset from './pages/auth/Reset'
+import AdminMaster from './pages/admin/master/Index'
+import FourOFour from './pages/fourOfour/Index'
+
+import ScrollToTop from './components/scrollToTop/Index'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <ScrollToTop>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/reset" component={Reset} />
+            <Route path="/admin" component={AdminMaster} />
+            <Route path="*" component={FourOFour} />
+          </Switch>
+        </ScrollToTop>
+      </Router>
     </div>
   );
 }
