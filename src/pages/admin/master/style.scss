@@ -1,0 +1,48 @@
+@import "../../../App.scss";
+
+.master {
+    // Nav Section
+    .nav-section {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        width: 100%;
+        height: 60px;
+        padding: 10px;
+        background: #fff;
+    }
+
+    // Sidemenu Section
+    .sidemenu-section {
+        @media (min-width: 992px) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9;
+            width: 280px;
+            height: 100vh;
+            overflow-y: auto;
+            background: #000;
+        }
+    }
+
+    // Mainmenu
+    .mainmenu-section {
+        padding-top: 60px;
+
+        @media (min-width: 992px) {
+            padding-left: 280px;
+        }
+    }
+
+    // Hide Sidemenu
+    .hide-sidemenu {
+        left: -100%;
+    }
+
+    // Hide Mainmenu
+    .hide-mainmenu {
+        padding-left: 0;
+    }
+}

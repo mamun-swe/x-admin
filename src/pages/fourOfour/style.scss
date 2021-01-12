@@ -1,0 +1,28 @@
+@import "../../App.scss";
+
+.four-o-four {
+    width: 100%;
+    height: 100vh;
+    img {
+        width: 250px;
+
+        @media (min-width: 576px) {
+            width: 350px;
+        }
+    }
+
+    h5 {
+        font-weight: 500;
+        margin-bottom: 25px;
+        font-family: "Roboto", sans-serif;
+    }
+
+    .btn {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 6px 30px;
+        background: $primary;
+        font-family: "Roboto", sans-serif;
+    }
+}
