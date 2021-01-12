@@ -24,6 +24,7 @@
             height: 100vh;
             overflow-y: auto;
             background: #000;
+            transition: 0.5s ease-in-out;
         }
     }
 
@@ -33,16 +34,21 @@
 
         @media (min-width: 992px) {
             padding-left: 280px;
+            transition: 0.5s ease-in-out;
         }
     }
 
     // Hide Sidemenu
     .hide-sidemenu {
         left: -100%;
+        transition: 0.5s ease-in-out;
     }
 
     // Hide Mainmenu
     .hide-mainmenu {
         padding-left: 0;
+        transition: 0.5s ease-in-out;
     }
 }
+
+// https://css-tricks.com/ease-out-in-ease-in-out/
