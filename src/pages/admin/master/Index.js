@@ -27,7 +27,7 @@ const Index = () => {
                 </div>
 
                 {/* Mainmenu */}
-                <div className={show ? "mainmenu-section flex-fill" : "mainmenu-section flex-fill hide-mainmenu"}>
+                <div className={show ? "main-section flex-fill" : "main-section flex-fill hide-main-section"}>
                     <Switch>
                         <Route exact path="/admin/" component={DashboardIndex} />
                     </Switch>
@@ -38,3 +38,4 @@ const Index = () => {
 }
 
 export default Index;
+
