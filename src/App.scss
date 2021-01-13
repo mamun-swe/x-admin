@@ -1,5 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 
+.App {
+    background: #f5f5f5;
+    min-height: 100vh;
+}
+
 $primary: #f542e9;
 $secondary: #555;
 

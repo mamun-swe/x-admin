@@ -1,0 +1,51 @@
+@import "../../App.scss";
+
+.layout {
+    // Navbar Container
+    .navbar-container {
+        /* Mobile */
+        @media (max-width: 992px) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            background: #fff;
+            padding: 10px;
+        }
+
+        /* Desktop */
+        @media (min-width: 992px) {
+            position: fixed;
+            top: 20px;
+            left: 320px;
+            right: 20px;
+            z-index: 99;
+            background: #fff;
+            padding: 20px;
+            border-radius: 7px;
+        }
+    }
+
+    // Sidebar Container
+    .sidebar-container {
+        /* Desktop */
+        @media (min-width: 992px) {
+            position: fixed;
+            width: 320px;
+            height: 100vh;
+            z-index: 999;
+            padding: 20px;
+            .sidebar {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #fff;
+                border-radius: 7px;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+        }
+    }
+}

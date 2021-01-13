@@ -2,54 +2,13 @@ import React from 'react'
 
 const Index = () => {
     return (
-        <div>
-            <h1>Dashboard 1st</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
-            <h1>Dashboard laste</h1>
+        <div className="container-fluid">
+            <div className="row">
+                <div className="col-12">
+                    <h1>Dashboard 1st</h1>
+
+                </div>
+            </div>
         </div>
     );
 }

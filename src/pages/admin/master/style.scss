@@ -1,69 +1,11 @@
 @import "../../../App.scss";
 
 .master {
-    // Nav Section
-    .nav-section {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 99;
-        width: 100%;
-        height: 60px;
-        padding: 10px;
-        background: #fff;
-    }
-
-    // Sidemenu Section
-    .sidemenu-section {
-        position: fixed;
-        top: 0;
-        z-index: 9;
-        width: 280px;
-        height: 100vh;
-        overflow-y: auto;
-        background: #000;
-        @media (max-width: 992px) {
-            left: -100%;
-            transition-timing-function: ease-in;
-            transition: 0.3s;
-        }
-
+    .main {
         @media (min-width: 992px) {
-            left: 0;
-            transition-timing-function: ease-in;
-            transition: 0.5s;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 300px;
         }
-    }
-
-    // Hide Sidemenu
-    .hide-sidemenu {
-        @media (max-width: 992px) {
-            left: 0;
-            transition: 0.2s;
-            transition-timing-function: ease-out;
-        }
-        @media (min-width: 992px) {
-            left: -100%;
-            transition: 1.5s;
-            transition-timing-function: ease-out;
-        }
-    }
-
-    // Main Section
-    .main-section {
-        padding-top: 60px;
-
-        @media (min-width: 992px) {
-            padding-left: 280px;
-            transition: 0.5s;
-            transition-timing-function: ease-out;
-        }
-    }
-
-    // Hide Main Section
-    .hide-main-section {
-        padding-left: 0;
-        transition-timing-function: ease-in;
-        transition: 0.6s;
     }
 }

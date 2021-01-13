@@ -14,7 +14,7 @@ const Index = ({ toggle }) => {
                     <img src={Images.Logo} className="img-fluid" alt="..." />
                 </div>
 
-                <div className="pl-lg-5 ml-lg-5">
+                <div className="pl-lg-5 ml-lg-5 d-lg-none">
                     <button
                         type="button"
                         className="btn shadow-none"
