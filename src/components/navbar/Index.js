@@ -1,40 +1,108 @@
 import React from 'react'
 import './style.scss'
 import Icon from 'react-icons-kit'
-import { list, user_circle } from 'react-icons-kit/ikons'
 import { Images } from '../../utils/Images'
+import { ic_menu, ic_notifications, ic_mail } from 'react-icons-kit/md'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 
-const Index = ({ toggle }) => {
+const Index = ({ notifications, messages, toggle }) => {
 
     return (
         <div className="custom-navbar">
             <div className="d-flex">
-                <div className="pr-2 pt-1 d-none d-lg-block">
-                    <img src={Images.Logo} className="img-fluid" alt="..." />
-                </div>
+                <div>
+                    <ul>
+                        <li className="d-lg-none">
+                            <button type="button" className="btn btn-sm shadow-none" onClick={toggle}>
+                                <Icon icon={ic_menu} size={20} />
+                            </button>
+                        </li>
+                        <li>
+                            {/* Notifications */}
+                            <Dropdown>
+                                <Dropdown.Toggle type="button" className="btn btn-sm shadow-none">
+                                    <Icon icon={ic_notifications} size={20} style={{ color: '#000' }} />
+                                </Dropdown.Toggle>
 
-                <div className="pl-lg-5 ml-lg-5 d-lg-none">
-                    <button
-                        type="button"
-                        className="btn shadow-none"
-                        onClick={toggle}
-                    >
-                        <Icon icon={list} size={20} />
-                    </button>
-                </div>
+                                <Dropdown.Menu className="shadow-sm">
 
-                <div className="pr-2 pt-1 d-lg-none m-auto">
-                    <img src={Images.Logo} className="img-fluid" alt="..." />
-                </div>
+                                    <div className="dropdown-body">
+                                        {notifications && notifications.length > 0 ?
+                                            notifications.slice(0, 3).map((notification, i) =>
+                                                <Dropdown.Item href="#/action-1" key={i}>
+                                                    <div className="d-flex">
+                                                        <div className="img-container">
+                                                            <img src={Images.FakeUser} className="img-fluid" alt="..." />
+                                                        </div>
+                                                        <div className="content-container">
+                                                            <p className="title">Test notification</p>
+                                                            <p className="message">{notification.name}</p>
+                                                            <p className="time">01:25 AM</p>
+                                                        </div>
+                                                    </div>
+                                                </Dropdown.Item>
+                                            ) :
+                                            <div className="text-center empty-container">
+                                                <img src={Images.Empty} className="img-fluid" alt="..." />
+                                                <p>No notification found today !</p>
+                                            </div>
+                                        }
+                                    </div>
 
+                                    <div className="dropdown-footer">
+                                        <Dropdown.Item href="#/action-1">
+                                            Check all notifications
+                                        </Dropdown.Item>
+                                    </div>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </li>
+                        <li>
+                            {/* Messages */}
+                            <Dropdown>
+                                <Dropdown.Toggle type="button" className="btn btn-sm shadow-none">
+                                    <Icon icon={ic_mail} size={20} style={{ color: '#000' }} />
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu className="shadow-sm">
+                                    <div className="dropdown-body">
+                                        {messages && messages.length > 0 ?
+                                            messages.slice(0, 3).map((message, i) =>
+                                                <Dropdown.Item href="#/action-1" key={i}>
+                                                    <div className="d-flex">
+                                                        <div className="img-container">
+                                                            <img src={Images.FakeUser} className="img-fluid" alt="..." />
+                                                        </div>
+                                                        <div className="content-container">
+                                                            <p className="title">Abdullah Al Mamun</p>
+                                                            <p className="message">Hello test message...</p>
+                                                            <p className="time">01:25 AM</p>
+                                                        </div>
+                                                    </div>
+                                                </Dropdown.Item>
+                                            ) :
+                                            <div className="text-center empty-container">
+                                                <img src={Images.Empty} className="img-fluid" alt="..." />
+                                                <p>No message found today !</p>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div className="dropdown-footer">
+                                        <Dropdown.Item href="#/action-1">
+                                            Check all messages
+                                        </Dropdown.Item>
+                                    </div>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </li>
+                    </ul>
+                </div>
                 <div className="ml-auto">
-                    <button
-                        type="button"
-                        className="btn shadow-none"
-                    >
-                        <Icon icon={user_circle} size={20} />
-                    </button>
+                    <ul>
+                        <li><p className="mb-0 text-capitalize">colour bangla</p></li>
+                        <li><img src={Images.FakeUser} className="img-fluid" alt="..." /></li>
+                    </ul>
                 </div>
             </div>
         </div>

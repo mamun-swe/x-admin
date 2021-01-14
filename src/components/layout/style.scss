@@ -3,32 +3,114 @@
 .layout {
     // Navbar Container
     .navbar-container {
+        z-index: 99;
+        padding: 10px;
+        position: fixed;
+        background: #fff;
+
         /* Mobile */
         @media (max-width: 992px) {
-            position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 99;
-            background: #fff;
-            padding: 10px;
         }
 
         /* Desktop */
         @media (min-width: 992px) {
-            position: fixed;
             top: 20px;
             left: 320px;
             right: 20px;
-            z-index: 99;
-            background: #fff;
-            padding: 20px;
-            border-radius: 7px;
+            border-radius: 4px;
         }
     }
 
     // Sidebar Container
     .sidebar-container {
+        .sidebar {
+            padding-top: 5px;
+            padding-bottom: 5px;
+
+            ul {
+                padding: 0;
+                margin: 0;
+
+                li {
+                    list-style: none;
+
+                    .btn {
+                        width: 100%;
+                        font-size: 15px;
+                        text-align: left;
+                        border-radius: 0;
+                        transition: 0.3s all;
+                        color: rgb(150, 150, 150);
+
+                        i {
+                            margin-right: 5px;
+                        }
+
+                        .arrow {
+                            float: right;
+                        }
+                    }
+
+                    .btn:hover {
+                        color: #000;
+                    }
+
+                    .isActive {
+                        color: #000;
+                    }
+
+                    .sidebar-dropdown-container {
+                        .arrow {
+                            -moz-transition: all .3s linear;
+                            -webkit-transition: all .3s linear;
+                            transition: all .3s linear;
+                        }
+
+                        .sidebar-dropdown-menu {
+                            width: 100%;
+                            padding-left: 40px;
+                        }
+
+                        .menu-hide {
+                            display: none;
+                        }
+
+                        .down {
+                            -moz-transform: rotate(90deg);
+                            -webkit-transform: rotate(90deg);
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Mobile
+        @media (max-width: 992px) {
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 280px;
+                height: 100%;
+                padding-top: 56px;
+                overflow-y: auto;
+                transition: 0.3s;
+                background: #fff;
+                border-radius: 7px;
+                overflow-x: hidden;
+                transition-timing-function: ease-out;
+                z-index: 9;
+            }
+
+            .open-sidebar {
+                left: 0 !important;
+            }
+        }
+
         /* Desktop */
         @media (min-width: 992px) {
             position: fixed;
@@ -36,6 +118,7 @@
             height: 100vh;
             z-index: 999;
             padding: 20px;
+
             .sidebar {
                 top: 0;
                 left: 0;

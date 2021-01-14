@@ -1,9 +1,14 @@
 @import "../../../App.scss";
 
 .master {
+    min-height: 100vh;
+    background: #f5f5f5;
+
     .main {
+        padding-top: 54px;
+
         @media (min-width: 992px) {
-            padding-top: 20px;
+            padding-top: 76px;
             padding-bottom: 20px;
             padding-left: 300px;
         }
