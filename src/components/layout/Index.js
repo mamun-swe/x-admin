@@ -16,7 +16,7 @@ import { handleError } from '../../utils/Error'
 
 const Layout = () => {
     const [show, setShow] = useState(false)
-    const [isMenu, setMenu] = useState(null)
+    const [isMenu, setMenu] = useState(false)
     const [notifications, setNotifications] = useState([])
     const [messages, setMessages] = useState([])
 
@@ -41,6 +41,16 @@ const Layout = () => {
 
     const isToggle = () => {
         setShow(!show)
+    }
+
+    const toggleMenu = event => {
+        let current = event.target.getAttribute("data-value")
+
+        if (isMenu === current) {
+            setMenu(false)
+        } else {
+            setMenu(current)
+        }
     }
 
     return (
@@ -71,14 +81,15 @@ const Layout = () => {
                             <div className="sidebar-dropdown-container">
                                 <button
                                     type="button"
-                                    className={isMenu ? "btn shadow-none isActive" : "btn shadow-none"}
-                                    onClick={() => setMenu(!isMenu)}
+                                    className={isMenu === 'website' ? "btn shadow-none isActive" : "btn shadow-none"}
+                                    onClick={toggleMenu}
+                                    data-value="website"
                                 >
                                     <Icon icon={ic_language} size={20} />Website
-                                <Icon icon={ic_keyboard_arrow_right} size={25} className={isMenu ? "arrow down" : "arrow"} />
+                                <Icon icon={ic_keyboard_arrow_right} size={25} className={isMenu === 'website' ? "arrow down" : "arrow"} />
                                 </button>
 
-                                <div className={isMenu ? "sidebar-dropdown-menu" : "sidebar-dropdown-menu menu-hide"}>
+                                <div className={isMenu === 'website' ? "sidebar-dropdown-menu" : "sidebar-dropdown-menu menu-hide"}>
                                     <NavLink
                                         exact
                                         to="/admin/theme"
@@ -123,14 +134,15 @@ const Layout = () => {
                             <div className="sidebar-dropdown-container">
                                 <button
                                     type="button"
-                                    className={isMenu ? "btn shadow-none isActive" : "btn shadow-none"}
-                                    onClick={() => setMenu(!isMenu)}
+                                    className={isMenu === 'accounts' ? "btn shadow-none isActive" : "btn shadow-none"}
+                                    onClick={toggleMenu}
+                                    data-value="accounts"
                                 >
                                     <Icon icon={ic_language} size={20} />Accounts
-                                <Icon icon={ic_keyboard_arrow_right} size={25} className={isMenu ? "arrow down" : "arrow"} />
+                                <Icon icon={ic_keyboard_arrow_right} size={25} className={isMenu === 'accounts' ? "arrow down" : "arrow"} />
                                 </button>
 
-                                <div className={isMenu ? "sidebar-dropdown-menu" : "sidebar-dropdown-menu menu-hide"}>
+                                <div className={isMenu === 'accounts' ? "sidebar-dropdown-menu" : "sidebar-dropdown-menu menu-hide"}>
                                     <NavLink
                                         exact
                                         to="/admin/theme"
@@ -169,60 +181,6 @@ const Layout = () => {
                                 </div>
                             </div>
                         </li>
-
-                        {/* Accounts Links */}
-                        <li>
-                            <div className="sidebar-dropdown-container">
-                                <button
-                                    type="button"
-                                    className={isMenu ? "btn shadow-none isActive" : "btn shadow-none"}
-                                    onClick={() => setMenu(!isMenu)}
-                                >
-                                    <Icon icon={ic_language} size={20} />Accounts
-                                <Icon icon={ic_keyboard_arrow_right} size={25} className={isMenu ? "arrow down" : "arrow"} />
-                                </button>
-
-                                <div className={isMenu ? "sidebar-dropdown-menu" : "sidebar-dropdown-menu menu-hide"}>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Account</NavLink>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Transaction</NavLink>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Income</NavLink>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Expense</NavLink>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Wallet management</NavLink>
-                                </div>
-                            </div>
-                        </li>
-
-
 
                     </ul>
                 </div>
