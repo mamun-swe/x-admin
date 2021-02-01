@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import './style.scss'
 import axios from 'axios'
-import { api } from '../../utils/url'
-import { NavLink } from 'react-router-dom'
 import Icon from 'react-icons-kit'
+import { api } from '../../utils/url'
+import { NavLink, useHistory } from 'react-router-dom'
 import {
     ic_dashboard,
     ic_people,
@@ -19,8 +19,10 @@ import { handleError } from '../../utils/Error'
 
 
 const Layout = () => {
+    const history = useHistory()
     const [show, setShow] = useState(false)
     const [isMenu, setMenu] = useState(false)
+    const [loggingOut, setLoggingOut] = useState(false)
     const [notifications, setNotifications] = useState([])
     const [messages, setMessages] = useState([])
 
@@ -52,6 +54,16 @@ const Layout = () => {
         } else {
             setMenu(current)
         }
+    }
+
+    // Logout
+    const doLogout = () => {
+        setLoggingOut(true)
+        setTimeout(() => {
+            setLoggingOut(false)
+            localStorage.clear()
+            history.push('/')
+        }, 2000)
     }
 
     return (
@@ -195,7 +207,12 @@ const Layout = () => {
                             <button
                                 type="button"
                                 className="btn shadow-none"
-                            ><Icon icon={standby} size={20} />Logout</button>
+                                onClick={doLogout}
+                                disabled={loggingOut}
+                            >
+                                <Icon icon={standby} size={18} />
+                                {loggingOut ? <span>Logging out...</span> : <span>Logout</span>}
+                            </button>
                         </li>
 
                     </ul>
