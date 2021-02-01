@@ -27,8 +27,7 @@
     // Sidebar Container
     .sidebar-container {
         .sidebar {
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding: 15px;
 
             ul {
                 padding: 0;
@@ -38,12 +37,13 @@
                     list-style: none;
 
                     .btn {
+                        color: #000;
+                        padding: 10px;
                         width: 100%;
                         font-size: 15px;
                         text-align: left;
-                        border-radius: 0;
+                        border-radius: 4px;
                         transition: 0.3s all;
-                        color: rgb(150, 150, 150);
 
                         i {
                             margin-right: 5px;
@@ -54,19 +54,17 @@
                         }
                     }
 
-                    .btn:hover {
-                        color: #000;
-                    }
-
                     .isActive {
-                        color: #000;
+                        color: #fff;
+                        background: $primary;
+                        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
                     }
 
                     .sidebar-dropdown-container {
                         .arrow {
-                            -moz-transition: all .3s linear;
-                            -webkit-transition: all .3s linear;
-                            transition: all .3s linear;
+                            -moz-transition: all 0.3s linear;
+                            -webkit-transition: all 0.3s linear;
+                            transition: all 0.3s linear;
                         }
 
                         .sidebar-dropdown-menu {
@@ -96,7 +94,7 @@
                 left: -100%;
                 width: 280px;
                 height: 100%;
-                padding-top: 56px;
+                padding-top: 65px;
                 overflow-y: auto;
                 transition: 0.3s;
                 background: #fff;

@@ -6,9 +6,13 @@ import { NavLink } from 'react-router-dom'
 import Icon from 'react-icons-kit'
 import {
     ic_dashboard,
+    ic_people,
+    ic_account_box,
     ic_language,
-    ic_keyboard_arrow_right
+    ic_keyboard_arrow_right,
+
 } from 'react-icons-kit/md'
+import { standby } from 'react-icons-kit/iconic'
 
 import Navbar from '../navbar/Index'
 import { handleError } from '../../utils/Error'
@@ -39,10 +43,7 @@ const Layout = () => {
         fetchNotifications()
     }, [])
 
-    const isToggle = () => {
-        setShow(!show)
-    }
-
+    // Toggle menu
     const toggleMenu = event => {
         let current = event.target.getAttribute("data-value")
 
@@ -59,7 +60,7 @@ const Layout = () => {
             {/* Navbar */}
             <div className="navbar-container shadow-sm">
                 {notifications && messages ?
-                    <Navbar notifications={notifications} messages={messages} toggle={isToggle} />
+                    <Navbar notifications={notifications} messages={messages} toggle={() => setShow(!show)} />
                     : null}
             </div>
 
@@ -76,12 +77,21 @@ const Layout = () => {
                                 className="btn shadow-none"
                             ><Icon icon={ic_dashboard} size={20} />Dashboard</NavLink>
                         </li>
+                        <li>
+                            <NavLink
+                                exact
+                                to="/admin/users"
+                                activeClassName="isActive"
+                                type="button"
+                                className="btn shadow-none"
+                            ><Icon icon={ic_people} size={20} />Users</NavLink>
+                        </li>
                         {/* Website Links */}
                         <li>
                             <div className="sidebar-dropdown-container">
                                 <button
                                     type="button"
-                                    className={isMenu === 'website' ? "btn shadow-none isActive" : "btn shadow-none"}
+                                    className="btn shadow-none"
                                     onClick={toggleMenu}
                                     data-value="website"
                                 >
@@ -134,11 +144,11 @@ const Layout = () => {
                             <div className="sidebar-dropdown-container">
                                 <button
                                     type="button"
-                                    className={isMenu === 'accounts' ? "btn shadow-none isActive" : "btn shadow-none"}
+                                    className="btn shadow-none"
                                     onClick={toggleMenu}
                                     data-value="accounts"
                                 >
-                                    <Icon icon={ic_language} size={20} />Accounts
+                                    <Icon icon={ic_account_box} size={20} />Accounts
                                 <Icon icon={ic_keyboard_arrow_right} size={25} className={isMenu === 'accounts' ? "arrow down" : "arrow"} />
                                 </button>
 
@@ -180,6 +190,12 @@ const Layout = () => {
                                     >Wallet management</NavLink>
                                 </div>
                             </div>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                className="btn shadow-none"
+                            ><Icon icon={standby} size={20} />Logout</button>
                         </li>
 
                     </ul>
