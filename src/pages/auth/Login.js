@@ -14,7 +14,13 @@ const Login = () => {
         try {
             setLogging(true)
             console.log(data)
-            history.push('/admin')
+            localStorage.setItem('token', data.email)
+
+            setTimeout(() => {
+                history.push('/admin')
+                setLogging(false)
+            }, 1000);
+
         } catch (error) {
             console.log(error)
         }

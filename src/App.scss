@@ -25,3 +25,13 @@ $muted: #dfdfdfc9;
     -webkit-box-direction: normal !important;
     flex-direction: column !important;
 }
+
+// Column padding for admin dashboard col padding
+.col-padding {
+    padding: 10px;
+
+    @media (min-width: 992px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

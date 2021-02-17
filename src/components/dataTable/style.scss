@@ -1,0 +1,82 @@
+@import "../../App.scss";
+
+.category-list {
+    padding-bottom: 10px;
+
+    .table {
+        thead {
+            tr {
+                td {
+                    font-size: 13px;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    font-size: 13px;
+                    font-weight: 400;
+
+                    .image-container {
+                        width: 40px;
+                        height: 40px;
+                        overflow: hidden;
+                        margin: auto;
+
+                        img {
+                            min-width: 40px;
+                            min-height: 40px;
+                        }
+                    }
+
+                    ul {
+                        width: 110px;
+                        padding: 0;
+                        margin: auto !important;
+
+                        li {
+                            float: left;
+                            list-style: none;
+
+                            .btn {
+                                color: $primary;
+                                padding: 3px 5px;
+                                margin-left: 5px;
+                                background: $muted;
+
+                                &:hover {
+                                    color: #fff;
+                                    background: $primary;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Pageination
+    .pageination-items {
+        ul {
+            padding: 0;
+            margin: 0 auto;
+
+            li {
+                float: left;
+                list-style: none;
+
+                .btn {
+                    color: $primary;
+                    font-size: 13px;
+                    border-radius: 0;
+                    padding: 5px 10px;
+                    background: #fff;
+                    border: 1px solid $muted;
+                }
+            }
+        }
+    }
+}

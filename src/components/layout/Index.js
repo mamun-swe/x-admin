@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './style.scss'
 import axios from 'axios'
 import Icon from 'react-icons-kit'
-import { api } from '../../utils/url'
+import { api } from '../../utils/api'
 import { NavLink, useHistory } from 'react-router-dom'
 import {
     ic_dashboard,
