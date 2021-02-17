@@ -45,6 +45,9 @@ const Login = () => {
                     <div className="col-12 col-lg-6 py-3 credential-container">
                         <div className="flex-center flex-column">
                             <div className="card border-0">
+                                <div className="d-lg-none">
+                                    <img src={Images.Logo} className="img-fluid" alt="..." />
+                                </div>
                                 <h3 className="mb-4">Get Started!</h3>
                                 <form onSubmit={handleSubmit(onSubmit)}>
 

@@ -37,6 +37,9 @@ const Login = () => {
                     <div className="col-12 col-lg-6 py-3 credential-container">
                         <div className="flex-center flex-column">
                             <div className="card border-0">
+                                <div className="d-lg-none">
+                                    <img src={Images.Logo} className="img-fluid" alt="..." />
+                                </div>
                                 <h3 className="mb-0">Recover Password!</h3>
                                 <p className="mb-4">Enter your Email and instructions will be sent to you!</p>
                                 <form onSubmit={handleSubmit(onSubmit)}>
