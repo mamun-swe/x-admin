@@ -1,0 +1,24 @@
+
+@import "../../../App.scss";
+
+// Product Index
+.product-index {
+    .card {
+        overflow: hidden;
+        border-radius: 6px;
+
+        .card-header {
+            h6 {
+                margin-top: 8px;
+                font-weight: 500;
+                color: $secondary;
+            }
+
+            .btn {
+                color: #fff;
+                padding: 5px 6px;
+                background: $primary;
+            }
+        }
+    }
+}

@@ -1,0 +1,93 @@
+@import "../../../App.scss";
+
+.dashboard-container{
+    .card {
+        overflow: hidden;
+        border-radius: 6px;
+
+        .card-header {
+            h6 {
+                font-weight: 500;
+                color: $secondary;
+            }
+        }
+    }
+
+    .item-card{
+        height: 120px;
+        position: relative;
+        overflow: hidden;
+
+        h5{
+            color: #000;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        p{
+            color: $primary;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        .triangle{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(54, 162, 235, 0.2);
+        }
+
+        
+        @media(max-width: 768px){
+            .bottom-right{
+                bottom: -105px;
+                right: -105px;
+            }
+    
+            .bottom-left{
+                bottom: -105px;
+                left: -105px;
+            }
+    
+            .top-right{
+                top: -105px;
+                right: -105px;
+            }
+    
+            .top-left{
+                top: -105px;
+                left: -105px;
+            }
+        }
+
+        @media(min-width: 768px){
+            .bottom-right{
+                bottom: -100px;
+                right: -100px;
+            }
+    
+            .bottom-left{
+                bottom: -100px;
+                left: -100px;
+            }
+    
+            .top-right{
+                top: -100px;
+                right: -100px;
+            }
+    
+            .top-left{
+                top: -100px;
+                left: -100px;
+            }
+        }
+      
+
+        @media(min-width: 1200px){
+            height: 185px;
+        }
+    }
+}

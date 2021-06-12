@@ -1,29 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.scss'
+import { useForm } from 'react-hook-form'
 import { Images } from '../../utils/Images'
 import { Link, useHistory } from 'react-router-dom'
-import { useForm } from 'react-hook-form'
+import Requests from '../../utils/Requests/Index'
 
 const Login = () => {
     const history = useHistory()
     const { register, handleSubmit, errors } = useForm()
     const [isLogging, setLogging] = useState(false)
 
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (token) history.push('/seller')
+    }, [history])
+
     // Submit Form
     const onSubmit = async (data) => {
-        try {
-            setLogging(true)
-            console.log(data)
-            localStorage.setItem('token', data.email)
-
-            setTimeout(() => {
-                history.push('/admin')
-                setLogging(false)
-            }, 1000);
-
-        } catch (error) {
-            console.log(error)
+        setLogging(true)
+        const response = await Requests.Auth.Login(data)
+        if (response) {
+            setLogging(false)
+            localStorage.setItem('token', response.token)
+            return history.push('/seller')
         }
+        setLogging(false)
     }
 
 
@@ -33,10 +34,12 @@ const Login = () => {
                 <div className="row">
                     <div className="col-12 col-lg-6 d-none d-lg-block p-0">
                         <div className="image-container">
-                            <img src={Images.AuthBg} className="img-fluid" alt="..." />
                             <div className="overlay">
                                 <div className="flex-center flex-column">
                                     <img src={Images.Logo} className="img-fluid" alt="..." />
+                                    <h2>welcome to eazybest</h2>
+                                    <h5>seller center</h5>
+                                    <p>Login as seller, manage your products.</p>
                                 </div>
                             </div>
                         </div>
@@ -45,10 +48,14 @@ const Login = () => {
                     <div className="col-12 col-lg-6 py-3 credential-container">
                         <div className="flex-center flex-column">
                             <div className="card border-0">
-                                <div className="d-lg-none">
-                                    <img src={Images.Logo} className="img-fluid" alt="..." />
+                                <div className="text-center text-lg-left">
+                                    <div className="d-lg-none">
+                                        <img src={Images.Logo} className="img-fluid" alt="..." />
+                                    </div>
+                                    <h3 className="mb-0 mb-lg-4">Get Started!</h3>
+                                    <p className="d-lg-none mb-4">Login as seller, manage your & products.</p>
                                 </div>
-                                <h3 className="mb-4">Get Started!</h3>
+
                                 <form onSubmit={handleSubmit(onSubmit)}>
 
                                     {/* E-mail */}

@@ -23,7 +23,7 @@ function App() {
             <Route exact path="/" component={Login} />
             <Route exact path="/reset" component={Reset} />
 
-            <PrivateRoute path="/admin" role="admin">
+            <PrivateRoute path="/seller" role="seller">
               <AdminMaster />
             </PrivateRoute>
 

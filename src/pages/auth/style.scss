@@ -10,7 +10,7 @@
         position: relative;
 
         img {
-            height: 100%;
+            width: 200px;
         }
 
         .overlay {
@@ -22,7 +22,27 @@
             background: rgba(255, 255, 255, 0.863);
 
             img {
-                height: 90px;
+                width: 200px;
+            }
+
+            h2 {
+                margin-top: 20px;
+                font-weight: 900;
+                margin-bottom: 0;
+                text-transform: uppercase;
+            }
+
+            h5 {
+                font-weight: 900;
+                margin-bottom: 0;
+                margin-bottom: 20px;
+                text-transform: uppercase;
+            }
+
+            p {
+                font-size: 14px;
+                color: $secondary;
+                margin-bottom: 50px;
             }
         }
     }
@@ -36,7 +56,7 @@
             background: none;
 
             img {
-                height: 70px;
+                width: 200px;
             }
 
             h3 {
@@ -52,20 +72,6 @@
                 font-family: "Roboto", sans-serif;
             }
 
-            .form-control {
-                color: #000;
-                height: 36px;
-                font-size: 13px;
-                background: #e9e8e8;
-                font-family: "Roboto", sans-serif;
-                border: 1px solid #e9e8e8;
-            }
-
-            .form-control:focus {
-                background: #fff;
-                border: 1px solid #e9e8e8;
-            }
-
             a {
                 color: $secondary;
                 font-size: 13px;
@@ -77,15 +83,6 @@
 
             a:hover {
                 color: $primary;
-            }
-
-            .btn {
-                color: #fff;
-                font-size: 14px;
-                font-weight: 500;
-                padding: 7px 30px;
-                background: $primary;
-                font-family: "Roboto", sans-serif;
             }
 
             @media (min-width: 576px) {

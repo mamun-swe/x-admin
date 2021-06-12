@@ -1,60 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './style.scss'
-import axios from 'axios'
 import Icon from 'react-icons-kit'
-import { api } from '../../utils/api'
 import { NavLink, useHistory } from 'react-router-dom'
 import {
-    ic_dashboard,
-    ic_people,
-    ic_account_box,
-    ic_language,
-    ic_keyboard_arrow_right,
-
-} from 'react-icons-kit/md'
-import { standby } from 'react-icons-kit/iconic'
-
+    grid,
+    uploadCloud,
+    arrowDownCircle,
+    activity,
+    barChart,
+    database,
+    file,
+    barChart2,
+    logOut
+} from 'react-icons-kit/feather'
 import Navbar from '../navbar/Index'
-import { handleError } from '../../utils/Error'
-
 
 const Layout = () => {
     const history = useHistory()
     const [show, setShow] = useState(false)
-    const [isMenu, setMenu] = useState(false)
     const [loggingOut, setLoggingOut] = useState(false)
-    const [notifications, setNotifications] = useState([])
-    const [messages, setMessages] = useState([])
-
-    useEffect(() => {
-        // Fetch Notifications
-        const fetchNotifications = async () => {
-            try {
-                const response = await axios.get(`${api}users`)
-                if (response.status === 200) {
-                    setNotifications(response.data)
-                    setMessages(response.data)
-                }
-            } catch (error) {
-                if (error) {
-                    handleError(error)
-                }
-            }
-        }
-
-        fetchNotifications()
-    }, [])
-
-    // Toggle menu
-    const toggleMenu = event => {
-        let current = event.target.getAttribute("data-value")
-
-        if (isMenu === current) {
-            setMenu(false)
-        } else {
-            setMenu(current)
-        }
-    }
 
     // Logout
     const doLogout = () => {
@@ -71,138 +35,104 @@ const Layout = () => {
 
             {/* Navbar */}
             <div className="navbar-container shadow-sm">
-                {notifications && messages ?
-                    <Navbar notifications={notifications} messages={messages} toggle={() => setShow(!show)} />
-                    : null}
+                <Navbar toggle={() => setShow(!show)} />
             </div>
 
             {/* Sidebar */}
             <div className="sidebar-container">
+                <div
+                    onClick={() => setShow(false)}
+                    className={show ? "backdrop d-lg-none open-backdrop" : "backdrop d-lg-none"}
+                />
                 <div className={show ? "sidebar shadow open-sidebar" : "sidebar shadow"}>
                     <ul>
                         <li>
                             <NavLink
                                 exact
-                                to="/admin/"
+                                to="/seller/"
                                 activeClassName="isActive"
                                 type="button"
                                 className="btn shadow-none"
-                            ><Icon icon={ic_dashboard} size={20} />Dashboard</NavLink>
+                            ><Icon icon={grid} size={17} />Dashboard</NavLink>
                         </li>
+
+                        {/* Product entry */}
                         <li>
                             <NavLink
                                 exact
-                                to="/admin/users"
+                                to="/seller/product-entry"
                                 activeClassName="isActive"
                                 type="button"
                                 className="btn shadow-none"
-                            ><Icon icon={ic_people} size={20} />Users</NavLink>
+                            ><Icon icon={uploadCloud} size={18} />Product Entry</NavLink>
                         </li>
-                        {/* Website Links */}
+
+                        {/* Request List */}
                         <li>
-                            <div className="sidebar-dropdown-container">
-                                <button
-                                    type="button"
-                                    className="btn shadow-none"
-                                    onClick={toggleMenu}
-                                    data-value="website"
-                                >
-                                    <Icon icon={ic_language} size={20} />Website
-                                <Icon icon={ic_keyboard_arrow_right} size={25} className={isMenu === 'website' ? "arrow down" : "arrow"} />
-                                </button>
-
-                                <div className={isMenu === 'website' ? "sidebar-dropdown-menu" : "sidebar-dropdown-menu menu-hide"}>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Theme</NavLink>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Banner</NavLink>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Success Story</NavLink>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >User Settings Field</NavLink>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Setting Fields Value</NavLink>
-                                </div>
-                            </div>
+                            <NavLink
+                                exact
+                                to="/seller/product-pending"
+                                activeClassName="isActive"
+                                type="button"
+                                className="btn shadow-none"
+                            ><Icon icon={arrowDownCircle} size={18} />Request List</NavLink>
                         </li>
 
-                        {/* Accounts Links */}
+                        {/* Live List */}
                         <li>
-                            <div className="sidebar-dropdown-container">
-                                <button
-                                    type="button"
-                                    className="btn shadow-none"
-                                    onClick={toggleMenu}
-                                    data-value="accounts"
-                                >
-                                    <Icon icon={ic_account_box} size={20} />Accounts
-                                <Icon icon={ic_keyboard_arrow_right} size={25} className={isMenu === 'accounts' ? "arrow down" : "arrow"} />
-                                </button>
-
-                                <div className={isMenu === 'accounts' ? "sidebar-dropdown-menu" : "sidebar-dropdown-menu menu-hide"}>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Account</NavLink>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Transaction</NavLink>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Income</NavLink>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Expense</NavLink>
-                                    <NavLink
-                                        exact
-                                        to="/admin/theme"
-                                        activeClassName="isActive"
-                                        type="button"
-                                        className="btn shadow-none"
-                                    >Wallet management</NavLink>
-                                </div>
-                            </div>
+                            <NavLink
+                                exact
+                                to="/seller/products"
+                                activeClassName="isActive"
+                                type="button"
+                                className="btn shadow-none"
+                            ><Icon icon={activity} size={18} />Live List</NavLink>
                         </li>
+
+                        {/* Todays's Purchase List */}
+                        <li>
+                            <NavLink
+                                exact
+                                to="/seller/product-purchase"
+                                activeClassName="isActive"
+                                type="button"
+                                className="btn shadow-none"
+                            ><Icon icon={barChart} size={18} />Todays's Purchase List</NavLink>
+                        </li>
+
+                        {/* Inventory */}
+                        <li>
+                            <NavLink
+                                exact
+                                to="/seller/inventory"
+                                activeClassName="isActive"
+                                type="button"
+                                className="btn shadow-none"
+                            ><Icon icon={database} size={18} />Inventory</NavLink>
+                        </li>
+
+                        {/* Contact Info */}
+                        <li>
+                            <NavLink
+                                exact
+                                to="/seller/contact"
+                                activeClassName="isActive"
+                                type="button"
+                                className="btn shadow-none"
+                            ><Icon icon={file} size={18} />Contact Info</NavLink>
+                        </li>
+
+                        {/* Date Wise Purchase Report (As s Supplier) */}
+                        <li>
+                            <NavLink
+                                exact
+                                to="/seller/purchase-report"
+                                activeClassName="isActive"
+                                type="button"
+                                className="btn shadow-none"
+                            ><Icon icon={barChart2} size={18} />Date Wise Purchase Report</NavLink>
+                        </li>
+
                         <li>
                             <button
                                 type="button"
@@ -210,7 +140,7 @@ const Layout = () => {
                                 onClick={doLogout}
                                 disabled={loggingOut}
                             >
-                                <Icon icon={standby} size={18} />
+                                <Icon icon={logOut} size={16} />
                                 {loggingOut ? <span>Logging out...</span> : <span>Logout</span>}
                             </button>
                         </li>

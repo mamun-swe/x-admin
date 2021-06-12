@@ -1,0 +1,147 @@
+/* Flex Box */
+
+.flex-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+}
+
+.flex-column {
+    -ms-flex-direction: column !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    flex-direction: column !important;
+}
+
+// Load more button
+.load-more-btn {
+    font-size: 14px;
+    color: $secondary;
+    padding: 10px 25px;
+    border-radius: 4px;
+    transition: 0.4s all;
+
+    &:hover {
+        color: #fff;
+        background: $primary;
+    }
+}
+
+// Table header
+.table {
+    thead {
+        tr {
+            td {
+                font-size: 13px;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+// Column padding for admin dashboard col padding
+.col-padding {
+    padding: 10px;
+
+    @media (min-width: 992px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+// Form
+form {
+    .form-group {
+        p {
+            color: #555;
+            font-size: 13px;
+            margin-bottom: 3px;
+            margin-left: 3px;
+        }
+
+        .form-control {
+            width: 100%;
+            color: #000;
+            font-size: 14px;
+            min-height: 42px;
+            background: #e9e8e8;
+            border: 1px solid #e9e8e8;
+        }
+
+        .form-control:focus {
+            background: #fff;
+            border: 1px solid #e9e8e8;
+        }
+
+        .error {
+            border: 1px solid red !important;
+        }
+    }
+
+    .btn {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 25px;
+        background: $primary;
+        padding: 10px 30px;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+// Next & Prev buttons
+.next-prev-buttons {
+    .btn {
+        color: $primary;
+        padding: 5px 6px;
+        transition: 0.4s all;
+
+        &:hover {
+            color: #fff;
+            background: $primary;
+        }
+    }
+}
+
+// button spin loader
+.btn-loader {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #dfdfdf;
+    border-top: 2px solid $primary;
+    -webkit-animation: spin 0.7s linear infinite; /* Safari */
+    animation: spin 0.7s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

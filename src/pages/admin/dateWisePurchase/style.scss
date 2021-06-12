@@ -1,0 +1,19 @@
+@import "../../../App.scss";
+
+.report-container{
+      .card{
+        .card-header {
+            h6 {
+                margin-top: 8px;
+                font-weight: 500;
+                color: $secondary;
+            }
+
+            .btn {
+                color: #fff;
+                padding: 5px 6px;
+                background: $primary;
+            }
+        }
+      }
+    }
